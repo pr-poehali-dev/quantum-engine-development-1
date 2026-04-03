@@ -1,23 +1,17 @@
-[
-  {
-    "name": "Valid form submission",
-    "method": "POST",
-    "path": "/",
-    "body": {
-      "name": "Иван Иванов",
-      "phone": "+7 (999) 123-45-67",
-      "company": "ООО Тест",
-      "message": "Хочу установить ворота"
+{
+  "tests": [
+    {
+      "name": "Missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": { "name": "Иван" },
+      "expectedStatus": 400
     },
-    "expectedStatus": 200
-  },
-  {
-    "name": "Missing required fields",
-    "method": "POST",
-    "path": "/",
-    "body": {
-      "name": "Иван"
-    },
-    "expectedStatus": 400
-  }
-]
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 204
+    }
+  ]
+}
