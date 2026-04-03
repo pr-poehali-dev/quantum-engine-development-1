@@ -1,8 +1,9 @@
 interface HeaderProps {
   className?: string;
+  onContactClick?: () => void;
 }
 
-export default function Header({ className }: HeaderProps) {
+export default function Header({ className, onContactClick }: HeaderProps) {
   return (
     <header className={`absolute top-0 left-0 right-0 z-10 p-6 ${className ?? ""}`}>
       <div className="flex justify-between items-center">
@@ -14,12 +15,12 @@ export default function Header({ className }: HeaderProps) {
           >
             Услуги
           </a>
-          <a
-            href="#contact"
-            className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm"
+          <button
+            onClick={onContactClick}
+            className="text-white hover:text-neutral-400 transition-colors duration-300 uppercase text-sm cursor-pointer bg-transparent border-none"
           >
             Заказать
-          </a>
+          </button>
         </nav>
       </div>
     </header>

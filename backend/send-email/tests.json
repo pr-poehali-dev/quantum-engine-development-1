@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Valid form submission",
+    "method": "POST",
+    "path": "/",
+    "body": {
+      "name": "Иван Иванов",
+      "phone": "+7 (999) 123-45-67",
+      "company": "ООО Тест",
+      "message": "Хочу установить ворота"
+    },
+    "expectedStatus": 200
+  },
+  {
+    "name": "Missing required fields",
+    "method": "POST",
+    "path": "/",
+    "body": {
+      "name": "Иван"
+    },
+    "expectedStatus": 400
+  }
+]

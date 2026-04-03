@@ -1,7 +1,11 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 
-export default function Hero() {
+interface HeroProps {
+  onCtaClick?: () => void;
+}
+
+export default function Hero({ onCtaClick }: HeroProps) {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -33,7 +37,10 @@ export default function Hero() {
         <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90">
           Профессиональная установка автоматических ворот и шлагбаумов. Надёжно, быстро, с гарантией.
         </p>
-        <button className="mt-8 bg-white text-black px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-neutral-200 transition-colors duration-300 cursor-pointer">
+        <button
+          onClick={onCtaClick}
+          className="mt-8 bg-white text-black px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-neutral-200 transition-colors duration-300 cursor-pointer"
+        >
           Получить расчёт
         </button>
       </div>
